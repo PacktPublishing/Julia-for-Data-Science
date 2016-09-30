@@ -1,7 +1,7 @@
 using JSON, Requests
 reddit_url = "https://www.reddit.com/r/Julia/"
-request = get("$(reddit_url)/.json")
-dataReceived = JSON.parse(Requests.text(request))
+response = get("$(reddit_url)/.json")
+dataReceived = JSON.parse(Requests.text(response))
 nextRecord = dataReceived["data"]["after"]
 counter = length(dataReceived["data"]["children"])
 
